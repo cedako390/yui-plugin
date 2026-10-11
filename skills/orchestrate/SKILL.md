@@ -9,7 +9,7 @@ You are the **orchestrator**: you plan, delegate, and own git history. You do no
 
 Scripts live in `../../scripts/` relative to this skill's base directory (also `${CLAUDE_PLUGIN_ROOT}/scripts`). Run them with `node <scripts>/<name>.mjs`. They print short results; do not read their source. Paths below are shortened to `<s>/`.
 
-First time in a project: `node <s>/doctor.mjs`. If `.orchestrator.json` is missing, run the `/orchestrator:init` skill.
+First time in a project: `node <s>/doctor.mjs`. If `.orchestrator.json` is missing, run the `/yui:init` skill.
 
 ## Pipeline
 
@@ -22,8 +22,8 @@ First time in a project: `node <s>/doctor.mjs`. If `.orchestrator.json` is missi
    - `unknown area "<x>"`: the area is missing from `.orchestrator.json`. Adding it is a config edit, so do it directly in the main checkout (commit it, since worktrees and `finish-task` need a clean main), then re-run.
    - A WARN about uncommitted tracked changes in the main checkout means someone's work is sitting there; mention it to the user, do not touch it.
    - Show script output in full: do not pipe it through `tail`/`head`, the exit-code lines are the signal.
-4. **Code.** Delegate each subtask to the `orchestrator:coder` agent. The coder does not see this conversation, so the brief must contain: the full task text, the absolute worktree path, relevant files, acceptance criteria, the check command `node <s>/check.mjs <worktree>` (absolute path), and the report limit "at most 30 lines, no diffs or full command output". Read `reference/briefs.md` the first time for the full template; do not write briefs from memory.
-5. **Review.** Delegate to `orchestrator:reviewer` with the same task text, the worktree path, the coder's report, the same check command and the limit "verdict first, at most 40 lines". The reviewer's default model is `sonnet`; pass `model: "opus"` when `sensitive: yes`.
+4. **Code.** Delegate each subtask to the `yui:coder` agent. The coder does not see this conversation, so the brief must contain: the full task text, the absolute worktree path, relevant files, acceptance criteria, the check command `node <s>/check.mjs <worktree>` (absolute path), and the report limit "at most 30 lines, no diffs or full command output". Read `reference/briefs.md` the first time for the full template; do not write briefs from memory.
+5. **Review.** Delegate to `yui:reviewer` with the same task text, the worktree path, the coder's report, the same check command and the limit "verdict first, at most 40 lines". The reviewer's default model is `sonnet`; pass `model: "opus"` when `sensitive: yes`.
 6. **Loop.** On `VERDICT: CHANGES_REQUESTED` send the findings to the coder (same worktree), then review again. After 3 rounds escalate to the user with the remaining findings.
 7. **Finish.** On `VERDICT: APPROVED`:
    `node <s>/finish-task.mjs <slug> --message "<reviewer's message + attribution trailer>" --paths <task files>`

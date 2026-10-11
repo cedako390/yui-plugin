@@ -92,7 +92,7 @@ export function readJson(file) {
 export function loadConfig(root) {
   const file = path.join(root, CONFIG_FILE);
   if (!fs.existsSync(file)) {
-    die(`${CONFIG_FILE} not found in ${root}. Run the orchestrator init skill (/orchestrator:init) first.`);
+    die(`${CONFIG_FILE} not found in ${root}. Run the orchestrator init skill (/yui:init) first.`);
   }
   let user;
   try {

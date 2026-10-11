@@ -40,7 +40,7 @@ Scripts are in `../../scripts/` relative to this skill's base directory (also `$
 
 ```
 ## Orchestration (main session only)
-For any code change, use the `orchestrator:orchestrate` skill. Config: `.orchestrator.json`. Subagents skip this.
+For any code change, use the `yui:orchestrate` skill. Config: `.orchestrator.json`. Subagents skip this.
 ```
 
 If the project already has its own `.claude/agents/coder.md` or `reviewer.md`, tell the user that project agents shadow the plugin's and ask whether to remove them.

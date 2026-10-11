@@ -12,20 +12,20 @@ Requires Claude Code, Node >= 18, git >= 2.31.
 
 ```
 /plugin marketplace add cedako390/yui-plugin
-/plugin install orchestrator@yui-plugin
+/plugin install yui@yui-plugin
 ```
 
 Restart the session, then once per project:
 
 ```
-/orchestrator:init
+/yui:init
 ```
 
 It inspects the repo, writes `.orchestrator.json` and validates it. Commit that file (worktrees and `finish-task` need a clean main branch).
 
 ## Use
 
-Ask for any code change in the main session; the `orchestrator:orchestrate` skill runs the pipeline. Check the setup any time with:
+Ask for any code change in the main session; the `yui:orchestrate` skill runs the pipeline. Check the setup any time with:
 
 ```
 node <plugin>/scripts/doctor.mjs

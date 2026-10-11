@@ -21,7 +21,7 @@ await run(async () => {
 
   const file = path.join(root, CONFIG_FILE);
   if (!fs.existsSync(file)) {
-    no(`${CONFIG_FILE} missing; run /orchestrator:init`);
+    no(`${CONFIG_FILE} missing; run /yui:init`);
     process.exit(1);
   }
   let cfg;
