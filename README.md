@@ -1,4 +1,4 @@
-# yui-skill: orchestrator plugin for Claude Code
+# yui-plugin: orchestrator plugin for Claude Code
 
 The main session plans and delegates; `coder` and `reviewer` subagents work in a separate git worktree per task; scripts do the git and check mechanics (worktree, collision check, checks, commit, fast-forward merge, push), so they cost almost no context.
 
@@ -11,8 +11,8 @@ plan -> worktree -> coder -> reviewer -> (loop) -> commit + merge + push
 Requires Claude Code, Node >= 18, git >= 2.31.
 
 ```
-/plugin marketplace add cedako390/yui-skill
-/plugin install orchestrator@yui-skill
+/plugin marketplace add cedako390/yui-plugin
+/plugin install orchestrator@yui-plugin
 ```
 
 Restart the session, then once per project:
