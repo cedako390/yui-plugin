@@ -12,7 +12,7 @@ Requires Claude Code, Node >= 18, git >= 2.31.
 
 ```
 /plugin marketplace add cedako390/yui-skill
-/plugin install orchestrator@claude-orchestrator
+/plugin install orchestrator@yui-skill
 ```
 
 Restart the session, then once per project:
