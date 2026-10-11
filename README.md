@@ -62,6 +62,7 @@ Full example: `examples/rcrm.orchestrator.json`.
 
 ## Notes
 
+- Several coders can work on disjoint parts of one task in the same worktree: `scripts/parts.mjs plan` checks the split, `verify` catches files outside it.
 - Parallel orchestrator sessions are supported: each task has a card (`.task.md`) and `new-task` refuses to start on a collision (exit 2).
 - A project's own `.claude/agents/coder.md` or `reviewer.md` shadows the plugin's.
 - Never force-pushes, only fast-forward merges.
