@@ -25,7 +25,7 @@ It inspects the repo, writes `.orchestrator.json` and validates it. Commit that 
 
 ## Use
 
-Ask for any code change in the main session; the `yui:orchestrate` skill runs the pipeline. Check the setup any time with:
+Ask for any code change in the main session; the `yui:run` skill runs the pipeline. Check the setup any time with:
 
 ```
 node <plugin>/scripts/doctor.mjs

@@ -1,5 +1,5 @@
 ---
-name: orchestrate
+name: run
 description: Use in the main session for ANY code change in a project that has .orchestrator.json. Plans the work, creates a branch and worktree, delegates to the coder and reviewer subagents, then commits and merges. Not for subagents.
 ---
 
