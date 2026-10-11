@@ -1,0 +1,57 @@
+{
+  "mainBranch": "main",
+  "remote": "origin",
+  "worktreeDir": "../{repo}.worktrees",
+  "branchPrefix": "task/",
+  "gitConfig": [
+    "core.autocrlf=false"
+  ],
+  "fixLineEndings": true,
+  "areas": {
+    "backend": {
+      "path": "backend",
+      "checks": [
+        "make build",
+        "make test",
+        "make lint"
+      ]
+    },
+    "frontend": {
+      "path": "frontend",
+      "setup": "npm ci",
+      "checks": [
+        "npm run typecheck",
+        "npm run check",
+        "npm run build"
+      ]
+    },
+    "kolesa": {
+      "path": "connectors/kolesa",
+      "checks": [
+        "pytest"
+      ]
+    },
+    "landing": {
+      "path": "landing",
+      "setup": "npm ci",
+      "checks": [
+        "npm run check",
+        "npm run build"
+      ]
+    }
+  },
+  "conflictPaths": [
+    "backend/db/migrations",
+    "backend/db/queries",
+    "backend/api",
+    "frontend/src/api"
+  ],
+  "sensitivePaths": [
+    "backend/internal/rbac",
+    "backend/internal/secrets",
+    "backend/db/migrations"
+  ],
+  "sharedResources": [
+    "One shared Postgres/Redis for all worktrees: never run make db-down, db-reset or db-destroy; only one task may add migrations"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "claude-orchestrator",
+  "owner": { "name": "cedako390" },
+  "plugins": [
+    {
+      "name": "orchestrator",
+      "source": "./",
+      "description": "Plan, delegate to coder and reviewer subagents in per-task git worktrees, then commit and merge. Scripted git and checks."
+    }
+  ]
+}

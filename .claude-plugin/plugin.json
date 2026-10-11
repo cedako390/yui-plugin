@@ -1,0 +1,8 @@
+{
+  "name": "orchestrator",
+  "version": "0.1.0",
+  "description": "Orchestrate code changes through git worktrees with coder and reviewer subagents. Scripts do the git and check mechanics so the main session's context stays small.",
+  "author": { "name": "cedako390" },
+  "license": "MIT",
+  "keywords": ["orchestration", "subagents", "worktree", "code-review"]
+}
